@@ -1,0 +1,293 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens to match user's specific palette */
+  --background: #17a7e0; /* Blue background */
+  --foreground: #843f2b; /* Brown text */
+  --card: #17a7e0; /* Blue card background */
+  --card-foreground: #843f2b; /* Brown card text */
+  --popover: #17a7e0; /* Blue popover background */
+  --popover-foreground: #843f2b; /* Brown text for popovers */
+  --primary: #843f2b; /* Brown primary (letters) */
+  --primary-foreground: #f4de40; /* Yellow text on primary */
+  --secondary: #f4de40; /* Yellow secondary */
+  --secondary-foreground: #843f2b; /* Brown text on secondary */
+  --muted: #e4511d; /* Orange muted (borders) */
+  --muted-foreground: #843f2b; /* Brown text on muted */
+  --accent: #f4de40; /* Yellow accent */
+  --accent-foreground: #843f2b; /* Brown text on accent */
+  --destructive: #e4511d; /* Orange destructive */
+  --destructive-foreground: #843f2b; /* Brown text on destructive */
+  --border: #e4511d; /* Orange border */
+  --input: #17a7e0; /* Blue input background */
+  --ring: #e4511d; /* Orange ring */
+  --chart-1: #843f2b; /* Chart color 1 - brown */
+  --chart-2: #f4de40; /* Chart color 2 - yellow */
+  --chart-3: #e4511d; /* Chart color 3 - orange */
+  --chart-4: #17a7e0; /* Chart color 4 - blue */
+  --chart-5: #004998; /* Chart color 5 - navy */
+  --radius: 0.5rem;
+  --sidebar: #004998; /* Navy sidebar (header/footer) */
+  --sidebar-foreground: #f4de40; /* Yellow sidebar text */
+  --sidebar-primary: #843f2b; /* Brown primary sidebar */
+  --sidebar-primary-foreground: #f4de40; /* Yellow text on primary sidebar */
+  --sidebar-accent: #f4de40; /* Yellow accent sidebar */
+  --sidebar-accent-foreground: #843f2b; /* Brown text on accent sidebar */
+  --sidebar-border: #e4511d; /* Orange sidebar border */
+  --sidebar-ring: #e4511d; /* Orange sidebar ring */
+}
+
+.dark {
+  --background: #17a7e0;
+  --foreground: #843f2b;
+  --card: #17a7e0;
+  --card-foreground: #843f2b;
+  --popover: #17a7e0;
+  --popover-foreground: #843f2b;
+  --primary: #843f2b;
+  --primary-foreground: #f4de40;
+  --secondary: #f4de40;
+  --secondary-foreground: #843f2b;
+  --muted: #e4511d;
+  --muted-foreground: #843f2b;
+  --accent: #f4de40;
+  --accent-foreground: #843f2b;
+  --destructive: #e4511d;
+  --destructive-foreground: #843f2b;
+  --border: #e4511d;
+  --input: #17a7e0;
+  --ring: #e4511d;
+  --chart-1: #843f2b;
+  --chart-2: #f4de40;
+  --chart-3: #e4511d;
+  --chart-4: #17a7e0;
+  --chart-5: #004998;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Added custom animations for banner images */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+.slide-in {
+  animation: slideIn 1s ease-in-out;
+}
+
+.slide-out {
+  animation: slideOut 1s ease-in-out;
+}
+
+/* Added horizontal scroll container styles */
+.horizontal-scroll {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Added artistic overlay styles for images with text */
+.artistic-overlay {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.artistic-overlay:hover {
+  transform: scale(1.02);
+}
+
+.artistic-overlay .content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Added smooth section transitions */
+.section-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Added collage grid styles - no gaps between cards */
+.collage-grid {
+  display: grid;
+  gap: 0;
+}
+
+.collage-grid > * {
+  border-collapse: collapse;
+}
+
+/* Added sun-split button styles */
+.sun-button {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #f4de40 0%, #f4de40 50%, transparent 50%, transparent 100%);
+}
+
+.sun-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, #f4de40 0%, #e4511d 70%, transparent 100%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.sun-button .icon {
+  position: relative;
+  z-index: 1;
+}
+
+/* Added section-specific background patterns */
+.section-desert {
+  background: linear-gradient(135deg, #17a7e0 0%, #17a7e0 100%);
+  position: relative;
+}
+
+.section-marine {
+  background: linear-gradient(135deg, #17a7e0 0%, #17a7e0 100%);
+  position: relative;
+}
+
+.section-port {
+  background: linear-gradient(135deg, #17a7e0 0%, #17a7e0 100%);
+  position: relative;
+}
+
+.section-nature {
+  background: linear-gradient(135deg, #17a7e0 0%, #17a7e0 100%);
+  position: relative;
+}
+
+.section-collective {
+  background: linear-gradient(135deg, #17a7e0 0%, #17a7e0 100%);
+  position: relative;
+}
+
+/* Added animated decorative elements */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floating-element {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Added smooth page transition effects */
+.page-enter {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 300ms, transform 300ms;
+}
