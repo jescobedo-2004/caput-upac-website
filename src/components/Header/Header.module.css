@@ -9,6 +9,9 @@
   padding: clamp(.75rem, 2vw, 1.25rem) clamp(1rem, 3vw, 2rem);
   background: #eaf3fb; /* similar a tu referencia */
   border-bottom: 1px solid #d7e6f1;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 /* —— Logo —— */
