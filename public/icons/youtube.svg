@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 400">
+  <!-- Outer rounded rectangle filled with currentColor; play triangle is cut out via a mask -->
+  <defs>
+    <mask id="cut">
+      <rect x="0" y="0" width="576" height="400" fill="white"/>
+      <!-- Play triangle (masked out) -->
+      <polygon points="240,120 240,280 380,200" fill="black"/>
+    </mask>
+  </defs>
+  <rect x="16" y="16" width="544" height="368" rx="80" ry="80" fill="currentColor" mask="url(#cut)"/>
+</svg>
