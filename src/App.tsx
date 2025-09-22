@@ -11,7 +11,7 @@ export function App() {
     <>
       <Header />
       <div className="relative">
-        <div className="sticky top-0 h-screen flex flex-col items-center justify-center bg-gradient-to-b from-green-200 to-blue-200">
+        <div className="sticky top-0 h-screen flex flex-col items-center justify-center bg-blue-100">
           <Inicio />
         </div>
         <div className="sticky top-0 h-screen flex flex-col items-center justify-center bg-gradient-to-b from-indigo-800 to-purple-800 text-white">
