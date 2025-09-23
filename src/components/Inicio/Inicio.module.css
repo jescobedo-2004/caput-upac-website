@@ -1,12 +1,17 @@
 .inicioSection {
-  padding: 2rem 1rem;
-  text-align: center;
-  background-color: #f9f9f9;
-  min-height: 80vh; /* Para que ocupe al menos la altura de la ventana */
+  min-height: 100vh; /* Asegura que la sección ocupe toda la altura de la ventana */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box; /* Incluye el padding en el cálculo del tamaño */
+}
+
+.contentWrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between; /* Empuja el contenido a los extremos */
 }
 
 .inicioSection h1 {
