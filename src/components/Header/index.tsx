@@ -28,11 +28,12 @@ export const Header = () => {
       {/* Navegación (en línea / horizontal) */}
       <nav className={styles.nav} aria-label="Navegación principal">
         <ul className={styles.menu}>
-          <li><a href="#inicio">inicio</a></li>
-          <li><a href="#proyectos">proyectos</a></li>
+          <li><a href="#somos">somos</a></li>
+          <li><a href="#proyectosYAcciones">proyectos y acciones</a></li>
           <li><a href="#residencias">residencias</a></li>
-          <li><a href="#charlasyTalleres">charlas y talleres</a></li>
-          <li><a href="#contacto">contacto</a></li>
+          <li><a href="#formacionYMediacion">formación y mediación</a></li>
+          <li><a href="#publicacionesYCirculaciones">publicaciones y circulaciones</a></li>
+          <li><a href="#videos">videos</a></li>
         </ul>
       </nav>
     </header>

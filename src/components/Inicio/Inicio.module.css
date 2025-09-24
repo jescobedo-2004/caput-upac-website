@@ -1,39 +1,104 @@
+/* src/components/Inicio/Inicio.module.css */
+
+/* ——— Sección a TODO ancho de viewport (full-bleed), fondo correcto ——— */
 .inicioSection {
-  min-height: 100vh; /* Asegura que la sección ocupe toda la altura de la ventana */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  box-sizing: border-box; /* Incluye el padding en el cálculo del tamaño */
+  position: relative;
+  overflow: hidden;
+  background-color: #e9f5fc;
+
+  /* truco full-bleed aunque tu layout tenga un contenedor centrado */
+  width: 100vw;
+  left: 0%;
+  right: 0%;
+  margin-left: -50vw; /* Asegura el full-bleed */
+  margin-right: -50vw; /* Asegura el full-bleed */
+
+  /* altura del banner */
+  height: 50vh;                  /* Mobile */
+  min-height: 380px;
+}
+@media (min-width: 768px) {      /* Tablet */
+  .inicioSection { height: 60vh; min-height: 480px; }
+}
+@media (min-width: 1024px) {     /* Desktop */
+  .inicioSection { height: 100vh; /* Cambiado a 100vh para un ajuste más forzado */ }
 }
 
-.contentWrapper {
-  display: flex;
+/* ——— GRID del banner a 6x6 ocupando TODO ——— */
+.bannerGrid {
+  position: relative;
   width: 100%;
-  align-items: center;
-  justify-content: space-between; /* Empuja el contenido a los extremos */
+  height: 100%;
+  margin: 0;
+  padding-inline: clamp(12px, 3vw, 32px);
+
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr)); /* Grilla de 6 columnas */
+  grid-template-rows: repeat(6, minmax(0, 1fr));   /* Grilla de 6 filas */
+
+  /* evita que alguna regla global limite el ancho */
+  max-width: none;
+  box-sizing: border-box;
 }
 
-.inicioSection h1 {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 1rem;
+/* ——— MAPA: centrado y más grande (ocupa la grilla) ——— */
+.mapaSvg {
+  grid-column: 2 / 6;  /* Desktop: cols 2–5 (centrado en 6 columnas) */
+  grid-row: 2 / 6;      /* Desktop: rows 2–5  */
+  justify-self: center;
+  align-self: center;
+
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: 100%;
+  object-fit: contain;   /* respeta proporción dentro del área asignada */
+  z-index: 10;           /* sobre la explosión */
 }
 
-.inicioSection p {
-  font-size: 1.2rem;
-  color: #666;
-  max-width: 800px;
-  line-height: 1.6;
-}
-
-/* Media Queries para responsividad */
-@media (max-width: 768px) {
-  .inicioSection h1 {
-    font-size: 2rem;
+/* Responsividad para Mapa SVG */
+@media (max-width: 1023px) { /* Tablet */
+  .mapaSvg {
+    grid-column: 1 / 7; /* Tablet: cols 1–6 */
+    grid-row: 2 / 6;
   }
-
-  .inicioSection p {
-    font-size: 1rem;
+}
+@media (max-width: 767px) { /* Mobile */
+  .mapaSvg {
+    grid-column: 1 / -1;
+    grid-row: 2 / 6;
+    width: 100%;
+    height: 100%;
   }
+}
+
+/* ——— EXPLOSIÓN: mitad dentro/mitad fuera, detrás del mapa ——— */
+.explosionSvg {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%); /* Centro en el borde derecho, cortado a la mitad */
+  pointer-events: none;
+  z-index: 9;   /* Cambiado de 15 a 9 para estar detrás del mapa (z-index: 10) */
+  height: auto;
+  opacity: 1; /* Asegurar que la explosión se vea sólida */
+}
+
+/* tamaños responsivos de la explosión */
+@media (min-width: 1024px) { .explosionSvg { width: min(100vmin, 1000px); } } /* Tamaños ajustados (aumentado vmin y px) */
+@media (min-width: 768px) and (max-width: 1023px) { .explosionSvg { width: min(110vmin, 900px); } } /* Tamaños ajustados (aumentado vmin y px) */
+@media (max-width: 767px) { .explosionSvg { width: min(130vmin, 700px); } } /* Tamaños ajustados (aumentado vmin y px) */
+
+/* ———— Grilla de verificación (DEBUG) ——— */
+.debugGrid {
+  --grid-line-color: rgba(0, 0, 0, 0.08);
+  background-image:
+    repeating-linear-gradient(to right,
+      transparent 0, transparent calc(100% / 6 - 1px),
+      var(--grid-line-color) calc(100% / 6 - 1px), var(--grid-line-color) calc(100% / 6)),
+    repeating-linear-gradient(to bottom,
+      transparent 0, transparent calc(100% / 6 - 1px),
+      var(--grid-line-color) calc(100% / 6 - 1px), var(--grid-line-color) calc(100% / 6));
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }

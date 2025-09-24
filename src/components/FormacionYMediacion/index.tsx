@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './CharlasYTalleres.module.css';
+import styles from './FormacionYMediacion.module.css';
 
-export const CharlasYTalleres = () => {
+export const FormacionYMediacion = () => {
   const cardData = [
     { title: "Charla: Introducción a la Explosión Creativa", link: "#" },
     { title: "Taller: Desencadenando Ideas", link: "#" },
@@ -22,8 +22,8 @@ export const CharlasYTalleres = () => {
   ];
 
   return (
-    <section id="charlasyTalleres" className={styles.charlasYTalleresSection}>
-      <h1 className={styles.sectionTitle}>Charlas y Talleres</h1>
+    <section id="formacionYMediacion" className={styles.formacionYMediacionSection}>
+      <h1 className={styles.sectionTitle}>Formación y Mediación</h1>
       <div className={styles.mainContainer}>
         {cardData.map((card, index) => (
           <div key={index} className={styles.cardAnimationLayer}>
