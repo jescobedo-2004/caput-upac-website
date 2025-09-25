@@ -1,34 +1,59 @@
-.residenciasSection {
-  padding: 2rem 1rem;
-  text-align: center;
-  background-color: #f0f0f0;
-  min-height: 80vh;
+.residenciasGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  height: 100vh; /* Ajusta esto según sea necesario */
+  width: 100%;
+  background-color: #e8461a;
+  overflow: hidden;
+}
+
+.residenciasTitle {
+  grid-area: 2 / 4 / 3 / 7; /* row-start / column-start / row-end / column-end */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: flex-start;
+  font-family: "Rounded Mplus 1C", sans-serif;
+  font-size: 4rem;
+  font-weight: 800; /* ExtraBold */
+  color: #f2dc40;
+  padding-left: 1rem;
+  text-transform: uppercase;
 }
 
-.residenciasSection h1 {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 1rem;
+.residenciaLink {
+  font-family: "Rounded Mplus 1C", sans-serif;
+  font-size: 1.5rem;
+  color: #2e3a6a; /* Un color azul oscuro similar al de la imagen */
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
-.residenciasSection p {
-  font-size: 1.2rem;
-  color: #666;
-  max-width: 800px;
-  line-height: 1.6;
+.residenciaLink:hover {
+  color: #f2dc40; /* Color de resaltado al pasar el ratón */
 }
 
-/* Media Queries para responsividad */
-@media (max-width: 768px) {
-  .residenciasSection h1 {
-    font-size: 2rem;
-  }
+.rioSeco { grid-area: 3 / 4 / 4 / 5; }
+.putre { grid-area: 3 / 5 / 4 / 6; }
+.losChoros { grid-area: 3 / 6 / 4 / 7; }
+.confluencias { grid-area: 4 / 4 / 5 / 5; }
+.travesias { grid-area: 4 / 5 / 5 / 6; }
+.lagda { grid-area: 4 / 6 / 5 / 7; }
+.internacionales { grid-area: 5 / 4 / 6 / 7; }
 
-  .residenciasSection p {
-    font-size: 1rem;
-  }
+.explosionGraphic {
+  grid-area: 4 / 1 / 7 / 4; /* row-start / column-start / row-end / column-end */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.explosionGraphic img {
+  max-width: 100%;
+  height: auto;
 }

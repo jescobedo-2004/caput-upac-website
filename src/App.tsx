@@ -95,14 +95,14 @@ export function App() {
         {/* Sección Proyectos y Acciones */}
         <div id="proyectosYAcciones" ref={el => {
           if (el) sectionRefs.current[2] = el;
-        }} className="w-screen h-screen flex-shrink-0 flex flex-col items-center justify-center bg-gradient-to-b from-indigo-800 to-purple-800 text-white snap-center">
+        }} className="w-screen h-screen flex-shrink-0 text-white snap-center">
           <ProyectosYAcciones />
         </div>
 
         {/* Sección Residencias */}
         <div id="residencias" ref={el => {
           if (el) sectionRefs.current[3] = el;
-        }} className="w-screen h-screen flex-shrink-0 flex flex-col items-center justify-center bg-gradient-to-b from-purple-800 to-pink-800 text-white snap-center">
+        }} className="w-screen h-screen flex-shrink-0 snap-center">
           <Residencias />
         </div>
 
