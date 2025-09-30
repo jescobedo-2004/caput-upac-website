@@ -1,9 +1,53 @@
-import React from 'react';
+import React, { useState, useEffect, RefObject } from 'react';
 import styles from './Header.module.css';
 
-export const Header = () => {
+interface HeaderProps {
+  scrollRef: RefObject<HTMLDivElement>;
+}
+
+export const Header: React.FC<HeaderProps> = ({ scrollRef }) => {
+  const [isHidden, setIsHidden] = useState(false);
+  const [isHoveringTop, setIsHoveringTop] = useState(false);
+
+  useEffect(() => {
+    const currentScrollContainer = scrollRef.current;
+    if (!currentScrollContainer) return;
+
+    let lastScrollX = currentScrollContainer.scrollLeft;
+    const handleScroll = () => {
+      const currentScrollX = currentScrollContainer.scrollLeft;
+
+      if (currentScrollX > lastScrollX && currentScrollX > 100) {
+        // Scrolling right
+        setIsHidden(true);
+      } else {
+        // Scrolling left
+        setIsHidden(false);
+      }
+      lastScrollX = currentScrollX;
+    };
+
+    const handleMouseMove = (event: MouseEvent) => {
+      if (event.clientY < 100) { // If mouse is within 100px from the top
+        setIsHoveringTop(true);
+      } else {
+        setIsHoveringTop(false);
+      }
+    };
+
+    currentScrollContainer.addEventListener('scroll', handleScroll);
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      currentScrollContainer.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [scrollRef]);
+
+  const headerClasses = `${styles.header} ${isHidden && !isHoveringTop ? styles.hidden : ''}`;
+
   return (
-    <header className={styles.header}>
+    <header className={headerClasses}>
       {/* Logo: cambia aquí el path si no está en /public */}
       <a href="#inicio" className={styles.logoLink} aria-label="CaputUpac - inicio">
         <img

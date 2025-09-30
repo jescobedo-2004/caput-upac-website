@@ -72,7 +72,7 @@ export function App() {
 
   return (
     <>
-      <Header />
+      <Header scrollRef={scrollContainerRef} />
       <div
         ref={scrollContainerRef}
         className="flex h-screen w-screen overflow-x-hidden snap-x snap-mandatory"
@@ -109,7 +109,7 @@ export function App() {
         {/* Sección Formación y Mediación */}
         <div id="formacionYMediacion" ref={el => {
           if (el) sectionRefs.current[4] = el;
-        }} className="w-screen h-screen flex-shrink-0 flex flex-col items-center justify-center bg-gradient-to-b from-blue-200 to-indigo-100 text-black snap-center">
+        }} className="w-screen h-screen flex-shrink-0 bg-[#f2dc40] snap-center">
           <FormacionYMediacion />
         </div>
 

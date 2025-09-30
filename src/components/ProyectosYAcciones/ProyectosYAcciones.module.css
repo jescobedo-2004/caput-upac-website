@@ -10,9 +10,9 @@
 
 .topLeftExplosion {
   position: absolute;
-  top: 0;
-  left: -150px;
-  width: 300px; /* Ajusta el tamaño según sea necesario */
+  top: -300px;
+  left: -350px;
+  width: 665px; /* Ajusta el tamaño según sea necesario */
   height: auto;
   fill: #e9f5fc; /* Color de la explosión superior izquierda (blanco) */
 }

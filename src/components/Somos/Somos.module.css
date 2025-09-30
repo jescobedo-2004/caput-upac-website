@@ -81,11 +81,11 @@
 
 .cornerExplosion {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: min(30vmin, 300px);
+  top: -200px;
+  right: -150px;
+  width: min(300vmin, 700px);
   height: auto;
-  transform: translate(30%, -30%);
+  transform: translate(30%, -20%);
   pointer-events: none;
   z-index: 10;
   opacity: 0.5;

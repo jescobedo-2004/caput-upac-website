@@ -14,8 +14,6 @@
   margin-right: -50vw; /* Asegura el full-bleed */
 
   /* altura del banner */
-  height: 50vh;                  /* Mobile */
-  min-height: 380px;
 }
 @media (min-width: 768px) {      /* Tablet */
   .inicioSection { height: 60vh; min-height: 480px; }
@@ -88,7 +86,6 @@
 @media (min-width: 1024px) { .explosionSvg { width: min(100vmin, 1000px); } } /* Tamaños ajustados (aumentado vmin y px) */
 @media (min-width: 768px) and (max-width: 1023px) { .explosionSvg { width: min(110vmin, 900px); } } /* Tamaños ajustados (aumentado vmin y px) */
 @media (max-width: 767px) { .explosionSvg { width: min(130vmin, 700px); } } /* Tamaños ajustados (aumentado vmin y px) */
-
 /* ———— Grilla de verificación (DEBUG) ——— */
 .debugGrid {
   --grid-line-color: rgba(0, 0, 0, 0.08);
@@ -102,3 +99,4 @@
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
+

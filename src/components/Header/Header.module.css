@@ -12,6 +12,24 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: transform 0.3s ease, padding 0.3s ease;
+}
+
+.header.hidden {
+  transform: translateY(calc(-100% + var(--header-compact-height))); /* Ajusta la altura compacta */
+  padding-bottom: 0;
+  /* Aquí puedes ajustar el padding-top si es necesario para mantener el logo visible */
+}
+
+.header.hidden .nav {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-100%);
+}
+
+/* Definir una altura compacta para el header, por ejemplo, la altura del logo + padding */
+:root {
+  --header-compact-height: clamp(56px, 10vw, 92px);
 }
 
 /* —— Logo —— */
@@ -34,7 +52,14 @@
 
   display: flex;
   gap: clamp(.5rem, 1.2vw, 1rem);
+  transition: opacity 0.3s ease;
 }
+
+.header.hidden .socials {
+  /* Asegurarse de que las redes sociales sigan visibles */
+  opacity: 1; /* O puedes aplicar un estilo diferente si quieres que también cambien */
+}
+
 .socials a {
   display: inline-flex;
   padding: 4px;
@@ -50,6 +75,7 @@
   grid-column: 2;
   grid-row: 2;
   align-self: end;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 /* IMPORTANTE: esto pone los <li> en HORIZONTAL y quita bullets */
