@@ -15,16 +15,18 @@
   width: 665px; /* Ajusta el tamaño según sea necesario */
   height: auto;
   fill: #e9f5fc; /* Color de la explosión superior izquierda (blanco) */
+  animation: rotate 12s linear infinite; /* Rotación constante en 12 segundos */
 }
 
 .bottomRightExplosion {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 250px; /* Ajusta el tamaño según sea necesario */
+  bottom: -400px;
+  right: -475px;
+  width: 800px; /* Ajusta el tamaño según sea necesario */
   height: auto;
   transform: rotate(180deg); /* Rotar para que la punta apunte a la derecha */
   fill: #f77f00; /* Color de la explosión inferior derecha (amarillo) */
+  animation: rotate 8s linear infinite; /* Rotación constante en 8 segundos */
 }
 
 .projectTitlesContainer {
@@ -84,15 +86,35 @@
   left: 2rem;
   display: flex;
   flex-direction: column;
+  width: fit-content; /* Ajustar el ancho al contenido */
+  height: fit-content; /* Ajustar la altura al contenido */
+  max-width: 80%; /* Limitar el ancho máximo para responsividad */
+  z-index: 1; /* Asegurar que esté por encima de otros elementos */
 }
 
 .sectionTitlePrimary {
   font-size: 5rem; /* Ajusta el tamaño de fuente */
   color: yellow; /* Color amarillo */
   line-height: 0.8; /* Ajusta la altura de línea */
+  display: flex;
+  align-items: center; /* Centra verticalmente el contenido */
+  gap: 1.5rem; /* Espacio entre "proyectos" y "&" */
+}
+
+.proyectosText {
+  font-family: 'MPLUSRounded1c', sans-serif;
+  font-weight: 800; /* ExtraBold */
+}
+
+.ampersandSvg {
+  height: 5rem; /* Ajusta el tamaño del SVG para que coincida con el texto */
+  width: auto;
+  color: #a0a0a0; /* Color gris para el SVG como en la imagen */
 }
 
 .sectionTitleSecondary {
+  font-family: 'MPLUSRounded1c', sans-serif;
+  font-weight: 300; /* Light */
   font-size: 3rem; /* Ajusta el tamaño de fuente para "acciones" */
   color: #a0a0a0; /* Color gris más claro */
 }
@@ -100,4 +122,13 @@
 /* Eliminar estilos anteriores si ya no son necesarios */
 .proyectosYAccionesSection h1, .proyectosYAccionesSection p {
   display: none; 
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

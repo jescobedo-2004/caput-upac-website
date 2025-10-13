@@ -48,11 +48,10 @@ export const Header: React.FC<HeaderProps> = ({ scrollRef }) => {
 
   return (
     <header className={headerClasses}>
-      {/* Logo: cambia aquí el path si no está en /public */}
       <a href="#inicio" className={styles.logoLink} aria-label="CaputUpac - inicio">
         <img
           className={styles.logo}
-          src="/logo.svg"  alt=" " // ← AQUÍ: si el archivo está en /public/logo.svg
+          src="/icons/logo caput.png" alt=" " // 
         />
       </a>
 

@@ -6,6 +6,7 @@
   width: 100%;
   background-color: #e8461a;
   overflow: hidden;
+  position: relative; /* ¡Añade esto! */
 }
 
 .residenciasTitle {
@@ -47,10 +48,22 @@
 .internacionales { grid-area: 5 / 4 / 6 / 7; }
 
 .explosionGraphic {
-  grid-area: 4 / 1 / 7 / 4; /* row-start / column-start / row-end / column-end */
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  position: absolute; 
+  bottom: -398px; /* Posiciona en la parte inferior con unidades */
+  left: -392px; /* Posiciona en la parte izquierda con unidades */
+  z-index: 10; /* Asegura que esté por encima de otros elementos */
+  width: 800px; /* Tamaño del SVG */
+  height: auto; /* Mantiene la proporción */
+  animation: rotate 10s linear infinite; /* Rotación constante en 10 segundos */
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .explosionGraphic img {

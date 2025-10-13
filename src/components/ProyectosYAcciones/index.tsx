@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import styles from './ProyectosYAcciones.module.css';
 /* import Explosion from '../Explosion'; */
 
-export const ProyectosYAcciones = () => {
+interface ProyectosYAccionesProps {
+  onShow404: () => void;
+}
+
+export const ProyectosYAcciones = ({ onShow404 }: ProyectosYAccionesProps) => {
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
 
   const handleProjectClick = (index: number) => {
@@ -12,7 +16,7 @@ export const ProyectosYAcciones = () => {
   return (
     <section id="proyectosYAcciones" className={styles.proyectosYAccionesSection}>
       <img
-        src="/explosion.svg"
+        src="/explosion_azul_claro.svg"
         alt="Explosión superior izquierda"
         className={styles.topLeftExplosion}
       />
@@ -35,7 +39,7 @@ export const ProyectosYAcciones = () => {
                 <p>{project.summary}</p>
                 <button 
                   className={styles.readMoreButton}
-                  onClick={() => alert(`Redirigiendo a la página de ${project.title}`)}
+                  onClick={onShow404}
                 >
                   Leer completo
                 </button>
@@ -45,7 +49,10 @@ export const ProyectosYAcciones = () => {
         ))}
       </div>
       <div className={styles.mainTitleContainer}>
-        <h1 className={styles.sectionTitlePrimary}>proyectos &</h1>
+        <h1 className={styles.sectionTitlePrimary}>
+          <span className={styles.proyectosText}>proyectos</span>
+          <img src="/&.svg" alt="ampersand" className={styles.ampersandSvg} />
+        </h1>
         <h1 className={styles.sectionTitleSecondary}>acciones</h1>
       </div>
     </section>

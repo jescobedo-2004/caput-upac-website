@@ -1,0 +1,103 @@
+.page_404 {
+  padding: 40px 0;
+  background: #fff;
+  font-family: 'Arvo', serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.col_sm_12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0 15px;
+}
+
+.col_sm_10 {
+  flex: 0 0 83.333333%;
+  max-width: 83.333333%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.four_zero_four_bg {
+  background-image: url('https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif');
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.four_zero_four_bg h1 {
+  font-size: 80px;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.contant_box_404 {
+  margin-top: -50px;
+}
+
+.h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.contant_box_404 p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.link_404 {
+  color: #fff !important;
+  padding: 10px 20px;
+  background: #39ac31;
+  margin: 20px 0;
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.link_404:hover {
+  background: #2d8a26;
+}
+
+.text_center {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .four_zero_four_bg {
+    height: 300px;
+  }
+  
+  .four_zero_four_bg h1 {
+    font-size: 60px;
+  }
+  
+  .col_sm_10 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

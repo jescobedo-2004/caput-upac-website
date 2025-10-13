@@ -7,7 +7,8 @@ import { Residencias } from './components/Residencias';
 import { FormacionYMediacion } from './components/FormacionYMediacion'; // Nombre cambiado
 import { PublicacionesYCirculaciones } from './components/PublicacionesYCirculaciones'; // Nombre cambiado
 import { Videos } from './components/Videos'; // Nuevo import
-import React, { useRef, useEffect } from 'react';
+import { Error404 } from './components/Error404'; // Nuevo import
+import React, { useRef, useEffect, useState } from 'react';
 
 export function App() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -15,6 +16,7 @@ export function App() {
   const currentSectionIndex = useRef(0);
   const canScroll = useRef(true);
   const SCROLL_COOLDOWN = 600;
+  const [show404, setShow404] = useState(false);
 
   const scrollToSection = (index: number) => {
     if (sectionRefs.current[index]) {
@@ -27,7 +29,17 @@ export function App() {
   };
 
   useEffect(() => {
+    // Evita configurar el scroll mientras se muestra la 404
+    if (show404) {
+      return;
+    }
+
     const handleWheel = (event: WheelEvent) => {
+      // Si estamos en la sección de Videos (índice 6), permitir scroll vertical
+      if (currentSectionIndex.current === 6) {
+        return; // Permitir scroll vertical natural
+      }
+
       event.preventDefault(); // Previene el scroll vertical por defecto
 
       if (scrollContainerRef.current) {
@@ -68,11 +80,23 @@ export function App() {
         container.removeEventListener('wheel', handleWheel);
       }
     };
-  }, []);
+  }, [show404]);
+
+  const handleShow404 = () => {
+    setShow404(true);
+  };
+
+  const handleHide404 = () => {
+    setShow404(false);
+  };
+
+  if (show404) {
+    return <Error404 onGoHome={handleHide404} />;
+  }
 
   return (
     <>
-      <Header scrollRef={scrollContainerRef} />
+      <Header scrollRef={scrollContainerRef as React.RefObject<HTMLDivElement>} />
       <div
         ref={scrollContainerRef}
         className="flex h-screen w-screen overflow-x-hidden snap-x snap-mandatory"
@@ -96,35 +120,35 @@ export function App() {
         <div id="proyectosYAcciones" ref={el => {
           if (el) sectionRefs.current[2] = el;
         }} className="w-screen h-screen flex-shrink-0 text-white snap-center">
-          <ProyectosYAcciones />
+          <ProyectosYAcciones onShow404={handleShow404} />
         </div>
 
         {/* Sección Residencias */}
         <div id="residencias" ref={el => {
           if (el) sectionRefs.current[3] = el;
         }} className="w-screen h-screen flex-shrink-0 snap-center">
-          <Residencias />
+          <Residencias onShow404={handleShow404} />
         </div>
 
         {/* Sección Formación y Mediación */}
         <div id="formacionYMediacion" ref={el => {
           if (el) sectionRefs.current[4] = el;
         }} className="w-screen h-screen flex-shrink-0 bg-[#f2dc40] snap-center">
-          <FormacionYMediacion />
+          <FormacionYMediacion onShow404={handleShow404} />
         </div>
 
         {/* Sección Publicaciones y Circulaciones */}
         <div id="publicacionesYCirculaciones" ref={el => {
           if (el) sectionRefs.current[5] = el;
-        }} className="w-screen h-screen flex-shrink-0 flex flex-col items-center justify-center bg-gradient-to-b from-green-200 to-blue-200 snap-center">
-          <PublicacionesYCirculaciones />
+        }} className="w-screen h-screen flex-shrink-0 snap-center">
+          <PublicacionesYCirculaciones onShow404={handleShow404} />
         </div>
 
         {/* Sección Videos */}
         <div id="videos" ref={el => {
           if (el) sectionRefs.current[6] = el;
-        }} className="w-screen h-screen flex-shrink-0 flex flex-col items-center justify-center bg-yellow-100 snap-center">
-          <Videos />
+        }} className="w-screen h-screen flex-shrink-0 snap-center">
+          <Videos onShow404={handleShow404} />
         </div>
       </div>
     </>

@@ -1,12 +1,16 @@
 import React from 'react';
 import styles from './FormacionYMediacion.module.css';
 
-export const FormacionYMediacion = () => {
+interface FormacionYMediacionProps {
+  onShow404: () => void;
+}
+
+export const FormacionYMediacion = ({ onShow404 }: FormacionYMediacionProps) => {
   return (
     <section id="formacionYMediacion" className={styles.formacionYMediacionSection}>
       <div className={styles.bannerGrid}>
         <img
-          src="/explosion.svg"
+          src="/explosion_roja.svg"
           alt="Representación abstracta de una explosión creativa"
           className={styles.explosionSvg}
           loading="lazy"
@@ -14,11 +18,11 @@ export const FormacionYMediacion = () => {
       </div>
       <div className={styles.contentContainer}>
         <div className={styles.subtitlesContainer}>
-          <a href="#" className={styles.subtitleLink}>PROYECTO 11</a>
-          <a href="#" className={styles.subtitleLink}>OPERACIONES SENSIBLES</a>
-          <a href="#" className={styles.subtitleLink}>CHARLAS Y TALLERES EN UNIVERSIDADES</a>
-          <a href="#" className={styles.subtitleLink}>LICEOS Y ESPACIOS INDEPENDIENTES</a>
-          <a href="#" className={styles.subtitleLink}>GIRAS DE PUBLICACIONES</a>
+          <button onClick={onShow404} className={styles.subtitleLink}>PROYECTO 11</button>
+          <button onClick={onShow404} className={styles.subtitleLink}>OPERACIONES SENSIBLES</button>
+          <button onClick={onShow404} className={styles.subtitleLink}>CHARLAS Y TALLERES EN UNIVERSIDADES</button>
+          <button onClick={onShow404} className={styles.subtitleLink}>LICEOS Y ESPACIOS INDEPENDIENTES</button>
+          <button onClick={onShow404} className={styles.subtitleLink}>GIRAS DE PUBLICACIONES</button>
         </div>
         <h1 className={styles.mainTitle}>formación & mediación</h1>
       </div>

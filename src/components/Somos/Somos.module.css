@@ -39,7 +39,7 @@
 }
 
 .somosDescription {
-  grid-column: 4 / 7;
+  grid-column: 3 / 7;
   grid-row: 1 / 5;
   align-self: center;
   font-family: 'Rounded Mplus 1c', sans-serif;
@@ -65,6 +65,7 @@
   height: auto;
   object-fit: cover;
   border-radius: 8px;
+  /*animation: rotateGallery 10s linear infinite; /* Rotación constante en 10 segundos */
 }
 
 .mainExplosion {
@@ -77,6 +78,7 @@
   pointer-events: none;
   z-index: 15; /* Cambiado de 10 para estar entre el fondo y el texto */
   opacity: 1; /* Eliminado la opacidad para un color más sólido, si el SVG tiene el color deseado */
+  animation: rotateMain 18s linear infinite; /* Rotación constante en 18 segundos */
 }
 
 .cornerExplosion {
@@ -88,7 +90,7 @@
   transform: translate(30%, -20%);
   pointer-events: none;
   z-index: 10;
-  opacity: 0.5;
+  animation: rotateCorner 12s linear infinite; /* Rotación constante en 12 segundos */
 }
 
 /* Responsive adjustments for smaller screens (optional, but good practice) */
@@ -143,4 +145,31 @@
       var(--grid-line-color) calc(100% / 6 - 1px), var(--grid-line-color) calc(100% / 6));
   background-size: 100% 100%;
   background-repeat: no-repeat;
+}
+
+@keyframes rotateMain {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes rotateCorner {
+  from {
+    transform: translate(30%, -20%) rotate(0deg);
+  }
+  to {
+    transform: translate(30%, -20%) rotate(360deg);
+  }
+}
+
+@keyframes rotateGallery {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

@@ -16,7 +16,7 @@ export const Inicio = () => {
         />
         {/* Explosion SVG */}
         <img
-          src="/explosion.svg"
+          src="/explosion_azul.svg"
           alt="Representación abstracta de una explosión creativa"
           className={styles.explosionSvg}
           loading="lazy"
