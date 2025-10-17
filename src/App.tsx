@@ -35,16 +35,52 @@ export function App() {
     }
 
     const handleWheel = (event: WheelEvent) => {
-      // Si estamos en la sección de Videos (índice 6), permitir scroll vertical
+      const delta = event.deltaY;
+      const numberOfSections = sectionRefs.current.length;
+
+      // Modo "L": en Videos (índice 6) permitir scroll vertical,
+      // pero si el usuario hace scroll hacia arriba en el tope, volver a horizontal.
       if (currentSectionIndex.current === 6) {
-        return; // Permitir scroll vertical natural
+        const videosEl = sectionRefs.current[6];
+        if (!videosEl) return;
+
+        // Asegura que el contenedor de videos sea scrollable verticalmente
+        // sin afectar otras secciones
+        (videosEl as HTMLElement).style.overflowY = 'auto';
+        (videosEl as HTMLElement).style.scrollBehavior = 'auto';
+
+        const atTop = (videosEl as HTMLElement).scrollTop <= 0;
+        const canScrollDown = (videosEl as HTMLElement).scrollTop + (videosEl as HTMLElement).clientHeight < (videosEl as HTMLElement).scrollHeight;
+
+        if (delta < 0 && atTop) {
+          // En el tope y scrollea hacia arriba: volvemos a la sección anterior (horizontal)
+          event.preventDefault();
+          const newIndex = Math.max(0, currentSectionIndex.current - 1);
+          if (newIndex !== currentSectionIndex.current && canScroll.current) {
+            currentSectionIndex.current = newIndex;
+            scrollToSection(currentSectionIndex.current);
+            canScroll.current = false;
+            setTimeout(() => { canScroll.current = true; }, SCROLL_COOLDOWN);
+          }
+          return;
+        }
+
+        // Si no está en el tope y va hacia abajo (o sube dentro del contenido),
+        // dejamos el scroll vertical natural.
+        if (delta > 0 && canScrollDown) {
+          return; // vertical natural dentro de videos
+        }
+        if (delta < 0 && !(atTop)) {
+          return; // vertical natural hacia arriba dentro de videos
+        }
+
+        // En el fondo o sin más contenido, no bloqueamos; dejamos que el navegador maneje
+        return;
       }
 
-      event.preventDefault(); // Previene el scroll vertical por defecto
-
+      // Resto de secciones: comportamiento horizontal
+      event.preventDefault();
       if (scrollContainerRef.current) {
-        const delta = event.deltaY;
-        const numberOfSections = sectionRefs.current.length;
 
         if (!canScroll.current) return;
 
