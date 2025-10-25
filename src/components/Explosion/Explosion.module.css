@@ -5,15 +5,9 @@
   }
   
   /* Animación de pulso tipo explosión */
-  .explosion {
-    width: 100px;   /* tamaño base */
-    height: auto;
-    animation: boom 1.5s infinite ease-in-out;
-  }
-  
-  @keyframes boom {
-    0%   { transform: scale(0.8); opacity: 0.7; }
-    50%  { transform: scale(1.2); opacity: 1; }
-    100% { transform: scale(0.8); opacity: 0.7; }
-  }
+.explosion {
+  width: 100px;   /* tamaño base */
+  height: auto;
+  /* Sin animación según nuevo diseño */
+}
   

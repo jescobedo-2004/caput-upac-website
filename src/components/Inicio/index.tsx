@@ -7,18 +7,13 @@ export const Inicio = () => {
   return (
     <section id="inicio" className={styles.inicioSection}>
       <div className={`${styles.bannerGrid} ${isDebugGrid ? styles.debugGrid : ''}`}>
+        {/* Cuadro verde en esquina inferior derecha */}
+        <div aria-hidden className={styles.cornerGreenSquare} />
         {/* Mapa SVG */}
         <img
           src="/mapa.svg" // Asumiendo que mapa.svg está en la carpeta /public
           alt="Mapa con puntos de interés de la explosión creativa"
           className={styles.mapaSvg}
-          loading="lazy"
-        />
-        {/* Explosion SVG */}
-        <img
-          src="/explosion_azul.svg"
-          alt="Representación abstracta de una explosión creativa"
-          className={styles.explosionSvg}
           loading="lazy"
         />
       </div>
