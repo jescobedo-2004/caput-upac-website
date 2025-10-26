@@ -14,7 +14,7 @@ export const Somos = () => {
         loading="lazy"
       />
       <img
-        src="/explosion_azul_claro.svg" // Explosión en la esquina superior derecha
+        src="/explosion_verde.svg" // Explosión en la esquina superior derecha
         alt="Explosión decorativa en la esquina"
         className={styles.cornerExplosion}
         loading="lazy"

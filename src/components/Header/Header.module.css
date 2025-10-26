@@ -9,7 +9,7 @@
   padding: clamp(.75rem, 2vw, 1.25rem) clamp(1rem, 3vw, 2rem);
   background: #eaf3fb; /* similar a tu referencia */
   border-bottom: 1px solid #d7e6f1;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
   transition: transform 0.3s ease, padding 0.3s ease;
@@ -90,7 +90,7 @@
 
 .menu a {
   text-decoration: none;
-  color: #b06b4f;     /* marrón suave como en tu maqueta */
+  color: #e35221;     /* marrón suave como en tu maqueta */
   font-weight: 400;
   letter-spacing: .02em;
   text-transform: lowercase;

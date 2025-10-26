@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Residencias.module.css';
-import explosionGraphic from '../../../public/explosion.svg';
+import explosionGraphic from '../../../public/explosion_transparente.svg';
 
 interface ResidenciasProps {
   onShow404: () => void;

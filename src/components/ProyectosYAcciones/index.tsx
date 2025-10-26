@@ -16,12 +16,12 @@ export const ProyectosYAcciones = ({ onShow404 }: ProyectosYAccionesProps) => {
   return (
     <section id="proyectosYAcciones" className={styles.proyectosYAccionesSection}>
       <img
-        src="/explosion_azul_claro.svg"
+        src="/explosion_verde.svg"
         alt="Explosión superior izquierda"
         className={styles.topLeftExplosion}
       />
       <img
-        src="/explosion.svg"
+        src="/explosion_transparente.svg"
         alt="Explosión inferior derecha"
         className={styles.bottomRightExplosion}
       />
@@ -34,17 +34,7 @@ export const ProyectosYAcciones = ({ onShow404 }: ProyectosYAccionesProps) => {
             >
               {project.title}
             </h2>
-            {expandedProject === index && (
-              <div className={styles.projectSummary}>
-                <p>{project.summary}</p>
-                <button 
-                  className={styles.readMoreButton}
-                  onClick={onShow404}
-                >
-                  Leer completo
-                </button>
-              </div>
-            )}
+           
           </div>
         ))}
       </div>
