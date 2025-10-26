@@ -48,7 +48,8 @@ export const Somos = () => {
               src="/explosion.svg" 
               alt="Imagen de miembro del equipo" 
               className={styles.personImage} 
-              loading="lazy" 
+              loading="lazy"
+
             />
           </div>
         </div>

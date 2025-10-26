@@ -3,8 +3,8 @@
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(6, 1fr);
   height: 100vh; /* Ajusta esto según sea necesario */
-  width: 100%;
-  background-color: #e8461a;
+    width: 100%;
+      background-color: #0a87ed;      /*e8461a*/
   overflow: hidden;
   position: relative; /* ¡Añade esto! */
 }
@@ -17,11 +17,11 @@
   font-family: "Rounded Mplus 1C", sans-serif;
   font-size: 4rem;
   font-weight: 800; /* ExtraBold */
-  color: #f2dc40;
+  color: #584d99;    /*Color de la letra "residencia" */
   padding-left: 1rem;
   text-transform: uppercase;
 }
-
+/*f2dc40*/
 .residenciaLink {
   font-family: "Rounded Mplus 1C", sans-serif;
   font-size: 1.5rem;
