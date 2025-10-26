@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(6, 1fr);
-  background-color: #f2dc40;
+  background-color: #e9f5fc;
   position: relative;
   overflow: hidden;
 }
