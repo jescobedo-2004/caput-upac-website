@@ -17,13 +17,6 @@ export const FormacionYMediacion = ({ onShow404 }: FormacionYMediacionProps) => 
         />
       </div>
       <div className={styles.contentContainer}>
-        <div className={styles.subtitlesContainer}>
-          <button onClick={onShow404} className={styles.subtitleLink}>PROYECTO 11</button>
-          <button onClick={onShow404} className={styles.subtitleLink}>OPERACIONES SENSIBLES</button>
-          <button onClick={onShow404} className={styles.subtitleLink}>CHARLAS Y TALLERES EN UNIVERSIDADES</button>
-          <button onClick={onShow404} className={styles.subtitleLink}>LICEOS Y ESPACIOS INDEPENDIENTES</button>
-          <button onClick={onShow404} className={styles.subtitleLink}>GIRAS DE PUBLICACIONES</button>
-        </div>
         <h1 className={styles.mainTitle}>formación & mediación</h1>
       </div>
     </section>
