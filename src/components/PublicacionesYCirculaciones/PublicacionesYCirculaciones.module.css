@@ -7,7 +7,7 @@
   justify-content: center;
   padding: 2rem;
   box-sizing: border-box;
-  background-color: #20a5dd; /* Un color de fondo suave */
+  background-color: #c9e0f1;
   position: relative; /* Para posicionar la explosión */
   overflow: hidden; /* Para ocultar partes de la explosión que se salgan */
 }

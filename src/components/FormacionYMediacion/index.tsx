@@ -10,7 +10,7 @@ export const FormacionYMediacion = ({ onShow404 }: FormacionYMediacionProps) => 
     <section id="formacionYMediacion" className={styles.formacionYMediacionSection}>
       <div className={styles.bannerGrid}>
         <img
-          src="/explosion_roja.svg"
+          src="/explosion_transparente_rojo.svg"
           alt="Representación abstracta de una explosión creativa"
           className={styles.explosionSvg}
           loading="lazy"
