@@ -4,22 +4,12 @@ import styles from './Somos.module.css';
 export const Somos = () => {
   return (
     <section id="somos" className={styles.somosSection}>
-      {/* Bloques de color siguiendo la referencia de la grilla */}
-      <div aria-hidden className={styles.somosBlockYellow} />
-      <div aria-hidden className={styles.somosBlockBlue} />
-      <img
-        src="/explosion_azul_claro.svg" // Explosión principal de fondo
-        alt="Explosión abstracta de fondo"
-        className={styles.mainExplosion}
-        loading="lazy"
-      />
       <img
         src="/explosion_verde.svg" // Explosión en la esquina superior derecha
         alt="Explosión decorativa en la esquina"
         className={styles.cornerExplosion}
         loading="lazy"
       />
-
       <div className={styles.somosGrid}>
         {/* Título "somos" que ocupa las primeras dos columnas */}
         <h1 className={styles.somosTitle}>somos</h1>
